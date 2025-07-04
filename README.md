@@ -6,9 +6,9 @@ El proyecto entrena un modelo de RandomForest con datos tabulares, con la capaci
 Para conseguir entrenar el modelo en un entorno local es necesario disponer del dataset 'adult-income' en el directorio `data/`, de forma que los datos de entrenamiento sean `data/adult.data`y los de test `data/adult.test`. El dataset se puede encontrar en la siguiente url `https://archive.ics.uci.edu/dataset/2/adult`. 
 
 Para conseguir entrenar el modelo utilizando la funcionalidad de un contenedor de Azure usando MLFlow es necesario definir los siguientes valores en GitHub actions:
-- Secretos: AZURE_CREDENTIALS, ACR_NAME, ACR_USERNAME, ACR_PASSWORD, AZURE_RESOURCE_GROUP, AZURE_STORAGE_CONNECTION_STRING
-- Variables: EXPERIMENT_NAME, MLFLOW_URL, MODEL_NAME
-- 
+- Secretos: `AZURE_CREDENTIALS`, `ACR_NAME`, `ACR_USERNAME`, `ACR_PASSWORD`, `AZURE_RESOURCE_GROUP`, `AZURE_STORAGE_CONNECTION_STRING`
+- Variables: `EXPERIMENT_NAME`, `MLFLOW_URL`, `MODEL_NAME`
+
 ## Ejecución en entorno local
 
 El modelo se puede entrenar en local instalando las dependencias
@@ -42,4 +42,12 @@ Una vez el workflow deploy haya fianlizado, el modelo puede ser consultado a tra
 `http:/model-api-<IMAGE_NAME>-<RUN_ID>.eastus.azurecontainer.io:8080\predict`
 
 donde IMAGE_NAME se ha definido como variable en 'deploy.yml`y RUN_ID es un id autogenerado por GitHub que se puede consultar en los logs del workflow deploy.
+
+### Ejemplo:
+
+![image](https://github.com/user-attachments/assets/cf972623-786e-4ac3-8e00-6663b042e7d2)
+
+## Dificultades durante el proyecto:
+
+Principalmente la adapatición del codigo a posibles canvios en las variables y el uso de secretos y variables en GitHub, las cuales permiten tener aquellos parámetros bajo control una vez se ha definido todo el proyecto correctamente, pero que han generado diversos errores mientras se desarrollaba.
 
