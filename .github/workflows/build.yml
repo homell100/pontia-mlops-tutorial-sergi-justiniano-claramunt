@@ -15,7 +15,7 @@ jobs:
     env:
       AZURE_STORAGE_CONNECTION_STRING: ${{secrets.AZURE_STORAGE_CONNECTION_STRING}}
       EXPERIMENT_NAME: ${{vars.EXPERIMENT_NAME}}
-      MLFLOW_URL: ${{vars.MLFLOW_URL}}
+      MLFLOW_URI: ${{vars.MLFLOW_URI}}
       MODEL_NAME: ${{vars.MODEL_NAME}}
     steps:
       - name: Generate RUN_NAME
